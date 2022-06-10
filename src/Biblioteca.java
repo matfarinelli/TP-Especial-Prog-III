@@ -47,6 +47,12 @@ public class Biblioteca {
         this.generos.add(genero);
     }
 
+
+    // libros de la biblioteca
+    public ArrayList<Libro> getLibros() {
+        return new ArrayList<>(this.libros);
+    }
+
     // generos de la biblioteca
     public ArrayList<Genero> getGeneros() {
         return new ArrayList<>(this.generos);

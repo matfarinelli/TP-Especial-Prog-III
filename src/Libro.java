@@ -4,7 +4,7 @@ public class Libro {
 
     private String titulo;
     private String autor;
-    private int cantidadPaginas;
+    private String cantidadPaginas; // ver. El split divide strings
     private ArrayList<String> generos;
 
     public Libro(String titulo) {
@@ -12,14 +12,14 @@ public class Libro {
         this.generos = new ArrayList<String>();
     }
 
-    public Libro(String titulo, int cantidadPaginas, String autor) {
+    public Libro(String titulo, String autor, String cantidadPaginas) {
         this.titulo = titulo.toUpperCase();
         this.cantidadPaginas = cantidadPaginas;
         this.autor = autor;
         this.generos = new ArrayList<String>();
     }
 
-    public Libro(String titulo, String autor, int cantidadPaginas, String genero) {
+    public Libro(String titulo, String autor, String cantidadPaginas, String genero) {
         this.titulo = titulo.toUpperCase();
         this.autor = autor;
         this.autor = autor;
@@ -36,7 +36,7 @@ public class Libro {
         this.autor = autor;
     }
 
-    public void setCantidadPaginas(int cantidadPaginas) {
+    public void setCantidadPaginas(String cantidadPaginas) {
         this.cantidadPaginas = cantidadPaginas;
     }
 
@@ -58,7 +58,7 @@ public class Libro {
         return this.autor;
     }
 
-    public int getCantidadPaginas() {
+    public String getCantidadPaginas() {
         return this.cantidadPaginas;
     }
 
@@ -67,6 +67,6 @@ public class Libro {
     }
 
     public String toString() {
-        return "Nombre : " + this.getTitulo() + " - Autor : " + this.autor; 
+        return "Nombre : " + this.getTitulo() + " - Autor : " + this.autor;
     }
 }
