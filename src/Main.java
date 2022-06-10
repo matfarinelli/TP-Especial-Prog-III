@@ -2,31 +2,32 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Biblioteca b1 = new Biblioteca();
         Libro l1 = new Libro("Relatos Salvajes");
 
-        l1.agregarAutor("Tinelli Marcelo");
-        l1.agregarAutor("Codevilla Pablo");
+        // pruebas
+        // l1.setAutor("Tinelli Marcelo");
+
         l1.agregarGenero("Thriller");
-        l1.agregarGenero("Thriller");
+        l1.agregarGenero("ThrIller");
         l1.agregarGenero("Comedia Negra");
         l1.agregarGenero("Suspenso");
 
-        System.out.println(l1.getAutores());
-        System.out.println(l1.getGeneros());
+        // System.out.println(l1.getAutores());
+
+        Libro l2 = new Libro("Harry Potter");
+
+        l2.agregarGenero("Suspenso");
+        l2.agregarGenero("Infantil");
+
+        b1.addLibro(l1);
+        b1.addLibro(l2);
+
+        System.out.println(b1.getGeneros().toString());
+
+        System.out.println(b1.getLibroPorGenero("ThrIller"));
 
 
-        l1.quitarAutor("pepe");
-        l1.quitarAutor("Tinelli Marcelo");
-        System.out.println(l1.getAutores());
-        l1.quitarAutor("codevilla");
-        System.out.println(l1.getAutores());
-
-        l1.agregarGenero("terror");
-        l1.agregarGenero("Comedia negra");
-        l1.agregarGenero("terror");
-        System.out.println(l1.getGeneros());
-
-        l1.isAutor("tinelli marcelo");
 
     }
 }

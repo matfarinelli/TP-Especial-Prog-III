@@ -1,70 +1,72 @@
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
 
 public class Libro {
 
     private String titulo;
-    private LinkedHashSet<String> autores;
+    private String autor;
     private int cantidadPaginas;
-    private LinkedHashSet<String> generos;
+    private ArrayList<String> generos;
 
     public Libro(String titulo) {
         this.titulo = titulo.toUpperCase();
-        this.generos = new LinkedHashSet<String>();
-        this.autores = new LinkedHashSet<String>();
+        this.generos = new ArrayList<String>();
     }
 
-    public Libro(String titulo, int cantidadPaginas) {
+    public Libro(String titulo, int cantidadPaginas, String autor) {
         this.titulo = titulo.toUpperCase();
         this.cantidadPaginas = cantidadPaginas;
-        this.generos = new LinkedHashSet<String>();
-        this.autores = new LinkedHashSet<String>();
+        this.autor = autor;
+        this.generos = new ArrayList<String>();
     }
 
     public Libro(String titulo, String autor, int cantidadPaginas, String genero) {
         this.titulo = titulo.toUpperCase();
-        this.autores = new LinkedHashSet<String>();
-        autores.add(autor.toUpperCase());
+        this.autor = autor;
+        this.autor = autor;
         this.cantidadPaginas = cantidadPaginas;
-        this.generos = new LinkedHashSet<String>();
+        this.generos = new ArrayList<String>();
+        generos.add(genero);
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public void setCantidadPaginas(int cantidadPaginas) {
+        this.cantidadPaginas = cantidadPaginas;
     }
 
     public void agregarGenero(String genero) {
-        if (!this.generos.contains(genero)) {
+        if (!this.generos.contains(genero.toUpperCase())) {
             this.generos.add(genero.toUpperCase());
         }
     }
 
     public void quitarGenero(String genero) {
-        this.generos.remove(genero);
+        this.generos.remove(genero.toUpperCase());
     }
 
-    public void agregarAutor(String autor) {
-        if (!this.autores.contains(autor)) {
-            this.autores.add(autor.toUpperCase());
-        }
+    public String getTitulo() {
+        return this.titulo;
     }
 
-    public void quitarAutor(String autor) {
-        this.autores.remove(autor);
+    public String getAutores() {
+        return this.autor;
+    }
+
+    public int getCantidadPaginas() {
+        return this.cantidadPaginas;
     }
 
     public ArrayList<String> getGeneros() {
         return new ArrayList<>(this.generos);
     }
 
-    public ArrayList<String> getAutores() {
-        return new ArrayList<>(this.autores);
+    public String toString() {
+        return "Nombre : " + this.getTitulo() + " - Autor : " + this.autor; 
     }
-
-    public boolean isAutor(String autor){
-        if (this.autores.contains(autor)){
-            System.out.println("si está!");
-            return true;
-        }
-        return false;
-    }
-
 }
