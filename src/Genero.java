@@ -23,14 +23,15 @@ public class Genero {
     }
 
     public String toString() {
-        return "Genero : " + this.getNombre();
+        //return "Genero : " + this.getNombre();
+        return this.getNombre();
     }
 
     @Override
     public boolean equals(Object o) {
         try {
             Genero aux = (Genero) o;
-            return this.getNombre() == aux.getNombre();
+            return this.getNombre().equals(aux.getNombre().toString());
         } catch (Exception e) {
             return false;
         }

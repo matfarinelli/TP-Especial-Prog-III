@@ -47,7 +47,6 @@ public class Biblioteca {
         this.generos.add(genero);
     }
 
-
     // libros de la biblioteca
     public ArrayList<Libro> getLibros() {
         return new ArrayList<>(this.libros);
@@ -59,23 +58,21 @@ public class Biblioteca {
     }
 
     // llamo al indice del genero
+    // public String getLibroPorGenero(String genero) {
     public ArrayList<Libro> getLibroPorGenero(String genero) {
         Genero generoBuscado = new Genero(genero);
 
         for (Genero generoBiblioteca : this.generos) {
-            System.out.println("genero buscado" + generoBuscado + " - genero biblioteca "
-                    + generoBiblioteca);
-            System.out.println("genero buscado tipo " + generoBuscado.getClass() + " - genero biblioteca tipo "
-                    + generoBiblioteca.getClass());
 
             if (generoBiblioteca.equals(generoBuscado)) {
-                System.out.println("tenemos el genero buscado " + generoBiblioteca);
-                System.out.println(generoBiblioteca.getLibros());
-            } else
-                System.out.println("no tenemos el genero buscado");
+                // System.out.println(generoBiblioteca.getLibros().toString());
+                //return generoBiblioteca.getLibros().toString();
+                return new ArrayList<>(generoBiblioteca.getLibros());
+            } // else
+              // System.out.println("no tenemos el genero buscado");
         }
 
-        return null;
+        return new ArrayList<Libro>();
 
     }
 

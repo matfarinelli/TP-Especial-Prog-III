@@ -21,7 +21,7 @@ public class CSVReader {
             //br.readLine();
 
             while ((line = br.readLine()) != null) {
-
+                // fraccionado del csv
                 String[] items = line.split(cvsSplitBy);
                 String genero = items[3];
                 String [] generos = genero.split(" ");
@@ -29,6 +29,7 @@ public class CSVReader {
                 //libro(titulo,autor,paginas)
                 Libro libro = new Libro (items[0],items[1],items[2]);
 
+                // recorrido de cada genero del libro
                 for (String generoLibro : generos){
                     libro.agregarGenero(generoLibro);
                 }
