@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -28,7 +30,7 @@ public class Main {
 
         // System.out.println(b1.getLibroPorGenero("ThrIller"));
 
-        CSVReader csvR = new CSVReader("./dataset1.csv");
+        CSVReader csvR = new CSVReader("./dataset4.csv");
 
         Biblioteca b1 = csvR.cargarBiblioteca();
 
@@ -37,7 +39,9 @@ public class Main {
 
         // System.out.println(b1.getLibroPorGenero("terror"));
 
-        CSVWritter csvW = new CSVWritter(b1.getLibroPorGenero("HUMOR"));// ;
+        ArrayList<Libro> busqueda = b1.getLibroPorGenero("cultura");
+
+        CSVWritter csvW = new CSVWritter(busqueda);// ;
 
         csvW.generarArchivoCSV();
     }
