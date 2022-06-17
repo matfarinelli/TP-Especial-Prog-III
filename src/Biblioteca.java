@@ -10,6 +10,11 @@ public class Biblioteca {
         this.generos = new ArrayList<>();
     }
 
+    public void cargarBiblioteca(String csv) {
+        CSVReader reader = new CSVReader(csv);
+        reader.cargarBiblioteca(this);
+    }
+
     public void addLibro(Libro libro) {
 
         // generos del nuevo libro
@@ -33,7 +38,7 @@ public class Biblioteca {
             // y agregar el libro a su organizador en "generos"
             if (!esta) {
                 Genero nuevoGenero = new Genero(generoLibro.toUpperCase());
-                this.generos.add(nuevoGenero);
+                this.addGenero(nuevoGenero);
                 nuevoGenero.addLibro(libro);
             }
 
@@ -43,7 +48,28 @@ public class Biblioteca {
 
     }
 
+    // DEBERÍA HACERLO DE MANERA ORDENADA PARA MEJORAR TIEMPOS DE BÚSQUEDA
     public void addGenero(Genero genero) {
+        if (generos.isEmpty()) {
+            generos.add(genero);
+        } else {
+            if (!generos.contains(genero)) {
+                int posicion = 0;
+
+                // 0 es igual - 1 es mayor y -1 es menor
+                while (posicion < generos.size() && (generos.get(posicion).compareTo(genero.toString()) < 0)) {
+                    posicion++;
+                }
+
+                if (posicion == generos.size()) {
+                    generos.add(genero);
+                }
+
+                generos.add(posicion, genero);
+
+            }
+        }
+
         this.generos.add(genero);
     }
 
@@ -66,7 +92,7 @@ public class Biblioteca {
 
             if (generoBiblioteca.equals(generoBuscado)) {
                 // System.out.println(generoBiblioteca.getLibros().toString());
-                //return generoBiblioteca.getLibros().toString();
+                // return generoBiblioteca.getLibros().toString();
                 return new ArrayList<>(generoBiblioteca.getLibros());
             } // else
               // System.out.println("no tenemos el genero buscado");

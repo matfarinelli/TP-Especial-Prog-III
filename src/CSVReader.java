@@ -12,25 +12,23 @@ public class CSVReader {
         this.csvFile = csvFile;
     }
 
-    public Biblioteca cargarBiblioteca() {
-
-        Biblioteca biblioteca = new Biblioteca();
+    public void cargarBiblioteca(Biblioteca biblioteca) {
 
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
 
-            //br.readLine();
+            // br.readLine();
 
             while ((line = br.readLine()) != null) {
                 // fraccionado del csv
                 String[] items = line.split(cvsSplitBy);
                 String genero = items[3];
-                String [] generos = genero.split(" ");
+                String[] generos = genero.split(" ");
 
-                //libro(titulo,autor,paginas)
-                Libro libro = new Libro (items[0],items[1],items[2]);
+                // libro(titulo,autor,paginas)
+                Libro libro = new Libro(items[0], items[1], items[2]);
 
                 // recorrido de cada genero del libro
-                for (String generoLibro : generos){
+                for (String generoLibro : generos) {
                     libro.agregarGenero(generoLibro);
                 }
 
@@ -40,7 +38,6 @@ public class CSVReader {
             e.printStackTrace();
         }
 
-        return biblioteca;
     }
 
 }

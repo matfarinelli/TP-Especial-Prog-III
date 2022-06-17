@@ -2,20 +2,27 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class CSVWritter {
-	
-	private  ArrayList<Libro> libros;
-	
+
+	private ArrayList<Libro> libros;
+
 	public CSVWritter(ArrayList<Libro> libros) {
 		this.libros = libros;
 	}
 
 	public void generarArchivoCSV() {
 		BufferedWriter bw = null;
+
+		LocalDateTime now = LocalDateTime.now();
+		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-YYYY_HH-mm-ss");
+		String fileName = now.format(format);
+
 		try {
-			File file = new File("./salida.csv");
+			File file = new File("./"+ fileName .toString()+".csv");
 			if (!file.exists()) {
 				file.createNewFile();
 			}

@@ -23,7 +23,7 @@ public class Genero {
     }
 
     public String toString() {
-        //return "Genero : " + this.getNombre();
+        // return "Genero : " + this.getNombre();
         return this.getNombre();
     }
 
@@ -35,6 +35,10 @@ public class Genero {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public int compareTo(String generoComparativo) {
+        return this.getNombre().compareTo(generoComparativo);
     }
 
 }

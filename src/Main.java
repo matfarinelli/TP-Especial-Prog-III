@@ -30,20 +30,24 @@ public class Main {
 
         // System.out.println(b1.getLibroPorGenero("ThrIller"));
 
-        CSVReader csvR = new CSVReader("./dataset4.csv");
+        // CSVReader csvR = new CSVReader("./dataset4.csv");
 
-        Biblioteca b1 = csvR.cargarBiblioteca();
+        Biblioteca b1 = new Biblioteca();
+
+        b1.cargarBiblioteca("./dataset4.csv");
 
         // System.out.println(b1.getGeneros());
         // System.out.println(b1.getLibros());
 
         // System.out.println(b1.getLibroPorGenero("terror"));
 
-        ArrayList<Libro> busqueda = b1.getLibroPorGenero("cultura");
+        // ArrayList<Libro> busqueda = b1.getLibroPorGenero("cultura");
 
-        CSVWritter csvW = new CSVWritter(busqueda);// ;
+        //CSVWritter csvW = new CSVWritter(b1.getLibroPorGenero("poesía"));
 
-        csvW.generarArchivoCSV();
+        //csvW.generarArchivoCSV();
+
+        System.out.println(b1.getGeneros()); 
     }
 
 }
