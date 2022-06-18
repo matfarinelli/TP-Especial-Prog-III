@@ -8,19 +8,19 @@ public class Libro {
     private ArrayList<String> generos;
 
     public Libro(String titulo) {
-        this.titulo = titulo.toUpperCase();
+        this.titulo = titulo;
         this.generos = new ArrayList<String>();
     }
 
     public Libro(String titulo, String autor, String cantidadPaginas) {
-        this.titulo = titulo.toUpperCase();
+        this.titulo = titulo;
         this.cantidadPaginas = cantidadPaginas;
         this.autor = autor;
         this.generos = new ArrayList<String>();
     }
 
     public Libro(String titulo, String autor, String cantidadPaginas, String genero) {
-        this.titulo = titulo.toUpperCase();
+        this.titulo = titulo;
         this.autor = autor;
         this.autor = autor;
         this.cantidadPaginas = cantidadPaginas;
@@ -41,13 +41,13 @@ public class Libro {
     }
 
     public void agregarGenero(String genero) {
-        if (!this.generos.contains(genero.toUpperCase())) {
-            this.generos.add(genero.toUpperCase());
+        if (!this.generos.contains(genero)) {
+            this.generos.add(genero);
         }
     }
 
     public void quitarGenero(String genero) {
-        this.generos.remove(genero.toUpperCase());
+        this.generos.remove(genero);
     }
 
     public String getTitulo() {

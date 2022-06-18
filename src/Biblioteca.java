@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import timer.Timer;
+
 public class Biblioteca {
 
     private ArrayList<Libro> libros;
@@ -11,9 +13,15 @@ public class Biblioteca {
     }
 
     public void cargarBiblioteca(String csv) {
-        // this.generos.clear();
+
+        Timer timer = new Timer();
+        System.out.println("Carga de biblioteca: ");
+        timer.start();
+
         CSVReader reader = new CSVReader(csv);
         reader.cargarBiblioteca(this);
+
+        System.out.println(timer.stop());
     }
 
     public void addLibro(Libro libro) {
@@ -27,10 +35,13 @@ public class Biblioteca {
 
             for (Genero generoBiblioteca : this.generos) {
 
+                // if (this.generos.contains(generoLibro)) {
                 if (generoBiblioteca.getNombre().equals(generoLibro)) {
-                    // System.out.println("ya tenemos este genero");
+                    // al indice
                     generoBiblioteca.addLibro(libro);
                     esta = true;
+                    // System.out.println("1 - Libro " + libro.getTitulo() + " agregado en GENERO "
+                    // + generoBiblioteca);
                 }
 
             }
@@ -38,21 +49,23 @@ public class Biblioteca {
             // si no esta el genero, agregarlo a biblioteca
             // y agregar el libro a su organizador en "generos"
             if (!esta) {
-                Genero nuevoGenero = new Genero(generoLibro.toUpperCase());
-                // metodo que inserta genero ordenado
+                Genero nuevoGenero = new Genero(generoLibro);
                 this.addGenero(nuevoGenero);
+                // metodo que inserta genero ordenado a la biblioteca
                 nuevoGenero.addLibro(libro);
+                // System.out.println("2 - Libro " + libro.getTitulo() + " agregado en genero "
+                // + nuevoGenero);
             }
 
         }
-
+        // podria borrarlo y utilizar directamente el indice.
         this.libros.add(libro);
     }
 
     // DEBERÍA HACERLO DE MANERA ORDENADA PARA MEJORAR TIEMPOS DE BÚSQUEDA
     public void addGenero(Genero genero) {
-        if (generos.isEmpty()) {
-            generos.add(genero);
+        if (this.generos.isEmpty()) {
+            this.generos.add(genero);
         } else {
             if (!generos.contains(genero)) {
                 int posicion = 0;
@@ -63,15 +76,15 @@ public class Biblioteca {
                 }
 
                 if (posicion == generos.size()) {
+                    // agrego al final
                     generos.add(genero);
+                } else {
+                    this.generos.add(posicion, genero);
                 }
-
-                generos.add(posicion, genero);
 
             }
         }
 
-        this.generos.add(genero);
     }
 
     // libros de la biblioteca
@@ -88,16 +101,22 @@ public class Biblioteca {
     public ArrayList<Libro> getLibroPorGenero(String genero) {
         Genero generoBuscado = new Genero(genero);
 
+        Timer timer = new Timer();
+        timer.start();
+
         for (Genero generoBiblioteca : this.generos) {
 
             if (generoBiblioteca.equals(generoBuscado)) {
                 // System.out.println(generoBiblioteca.getLibros().toString());
                 // return generoBiblioteca.getLibros().toString();
+                System.out.println(timer.stop());
                 return new ArrayList<>(generoBiblioteca.getLibros());
             } // else
               // System.out.println("no tenemos el genero buscado");
         }
 
+        System.out.println("Busqueda por índice en biblioteca: ");
+        System.out.println(timer.stop());
         return new ArrayList<Libro>();
 
     }

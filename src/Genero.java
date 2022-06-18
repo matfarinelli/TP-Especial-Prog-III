@@ -6,7 +6,7 @@ public class Genero {
     private ArrayList<Libro> libros; // libros por genero para futuro indice
 
     public Genero(String nombre) {
-        this.nombre = nombre.toUpperCase();
+        this.nombre = nombre;
         this.libros = new ArrayList<>();
     }
 
@@ -15,10 +15,9 @@ public class Genero {
     }
 
     public void addLibro(Libro libro) {
-        if (!libros.contains(libro)) {
+        //if (!libros.contains(libro)) {
             this.libros.add(libro);
-        }
-
+        //}
     }
 
     public ArrayList<Libro> getLibros() {

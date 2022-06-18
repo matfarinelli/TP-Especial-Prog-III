@@ -29,6 +29,10 @@ public class CSVReader {
 
                 // recorrido de cada genero del libro
                 for (String generoLibro : generos) {
+                    // para omitir primera linea - titulos de csv
+                    if (generoLibro.equals("Generos")) {
+                        continue;
+                    }
                     libro.agregarGenero(generoLibro);
                 }
 

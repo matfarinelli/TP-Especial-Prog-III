@@ -34,29 +34,30 @@ public class Main {
 
         Biblioteca b1 = new Biblioteca();
 
-        b1.cargarBiblioteca("./dataset1.csv");
+        b1.cargarBiblioteca("./dataset4.csv");
 
         // System.out.println(b1.getGeneros());
         // System.out.println(" -------------- ");
-        // System.out.println(b1.getLibros());
 
         // System.out.println(b1.getLibroPorGenero("terror"));
 
         // ArrayList<Libro> busqueda = b1.getLibroPorGenero("cultura");
 
         Libro test = new Libro("Relatos Salvajes");
-        test.setAutor("Scolpe");
+        test.setAutor("CORTESE");
         test.agregarGenero("poesía");
 
         b1.addLibro(test);
 
-        CSVWritter csvW = new CSVWritter(b1.getLibroPorGenero("poesía"));
+        // System.out.println(b1.getGeneros());
+
+        CSVWritter csvW = new CSVWritter(b1.getLibroPorGenero("viajes"));
 
         csvW.generarArchivoCSV();
 
-        //System.out.println(b1.getLibroPorGenero("poesía"));
+        // System.out.println(b1.getLibroPorGenero("poesía"));
 
-        //System.out.println(b1.getLibros());
+        // System.out.println(b1.getGeneros());
     }
 
 }
