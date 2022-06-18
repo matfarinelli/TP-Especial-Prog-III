@@ -15,7 +15,10 @@ public class Genero {
     }
 
     public void addLibro(Libro libro) {
-        this.libros.add(libro);
+        if (!libros.contains(libro)) {
+            this.libros.add(libro);
+        }
+
     }
 
     public ArrayList<Libro> getLibros() {

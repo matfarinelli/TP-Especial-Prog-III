@@ -11,6 +11,7 @@ public class Biblioteca {
     }
 
     public void cargarBiblioteca(String csv) {
+        // this.generos.clear();
         CSVReader reader = new CSVReader(csv);
         reader.cargarBiblioteca(this);
     }
@@ -38,14 +39,14 @@ public class Biblioteca {
             // y agregar el libro a su organizador en "generos"
             if (!esta) {
                 Genero nuevoGenero = new Genero(generoLibro.toUpperCase());
+                // metodo que inserta genero ordenado
                 this.addGenero(nuevoGenero);
                 nuevoGenero.addLibro(libro);
             }
 
-            // podria controlar que no esté repetido
-            this.libros.add(libro);
         }
 
+        this.libros.add(libro);
     }
 
     // DEBERÍA HACERLO DE MANERA ORDENADA PARA MEJORAR TIEMPOS DE BÚSQUEDA
@@ -84,7 +85,6 @@ public class Biblioteca {
     }
 
     // llamo al indice del genero
-    // public String getLibroPorGenero(String genero) {
     public ArrayList<Libro> getLibroPorGenero(String genero) {
         Genero generoBuscado = new Genero(genero);
 
