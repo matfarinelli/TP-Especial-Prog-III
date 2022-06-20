@@ -68,6 +68,6 @@ public class Libro {
 
     public String toString() {
         // return "Nombre : " + this.getTitulo() + " - Autor : " + this.autor;
-        return this.titulo + "," + this.autor;
+        return this.titulo;
     }
 }

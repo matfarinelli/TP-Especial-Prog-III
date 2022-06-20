@@ -18,11 +18,11 @@ public class CSVWritter {
 		BufferedWriter bw = null;
 
 		LocalDateTime now = LocalDateTime.now();
-		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-YYYY_HH-mm-ss");
+		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MMM_HH-mm-ss");
 		String fileName = now.format(format);
 
 		try {
-			File file = new File("./"+ fileName .toString()+".csv");
+			File file = new File("./" + fileName.toString() + ".csv");
 			if (!file.exists()) {
 				file.createNewFile();
 			}
@@ -31,10 +31,10 @@ public class CSVWritter {
 			bw = new BufferedWriter(fw);
 
 			// Escribo la primer linea del archivo
-			String contenidoLinea1 = "Libro,Autor";
+			String contenidoLinea1 = "Libro";
 			bw.write(contenidoLinea1);
 			bw.newLine();
-			
+
 			for (Libro libro : libros) {
 				bw.write(libro.toString());
 				bw.newLine();
