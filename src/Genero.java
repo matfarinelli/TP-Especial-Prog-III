@@ -15,9 +15,7 @@ public class Genero {
     }
 
     public void addLibro(Libro libro) {
-        //if (!libros.contains(libro)) {
-            this.libros.add(libro);
-        //}
+        this.libros.add(libro);
     }
 
     public ArrayList<Libro> getLibros() {

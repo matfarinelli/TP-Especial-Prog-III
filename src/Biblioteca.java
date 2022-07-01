@@ -1,13 +1,10 @@
 import java.util.ArrayList;
-import java.util.TreeMap;
-
 import timer.Timer;
 
 public class Biblioteca {
 
     private ArrayList<Libro> libros;
     private ArrayList<Genero> generos;
-    private TreeMap<String, ArrayList<Genero>> indice = new TreeMap<>();
 
     public Biblioteca() {
         this.libros = new ArrayList<>();
@@ -101,8 +98,6 @@ public class Biblioteca {
         for (Genero generoBiblioteca : this.generos) {
 
             if (generoBiblioteca.equals(generoBuscado)) {
-                // System.out.println(generoBiblioteca.getLibros().toString());
-                // return generoBiblioteca.getLibros().toString();
                 System.out.println(timer.stop());
                 return new ArrayList<>(generoBiblioteca.getLibros());
             } // else
@@ -114,7 +109,5 @@ public class Biblioteca {
         return new ArrayList<Libro>();
 
     }
-
-    // ************************************* */
 
 }
