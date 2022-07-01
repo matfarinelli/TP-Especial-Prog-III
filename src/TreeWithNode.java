@@ -1,4 +1,4 @@
-package practico2_7;
+/* 
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +39,7 @@ public class TreeWithNode {
 
 	}
 
+    
 	// metodo PRIVADO
 	private void add(Genero actual, String genero) {
 		if (actual.getNombre() > genero) {
@@ -430,3 +431,4 @@ public class TreeWithNode {
 
 	}
 }
+*/

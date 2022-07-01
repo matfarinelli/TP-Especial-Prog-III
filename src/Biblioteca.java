@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.TreeMap;
 
 import timer.Timer;
 
@@ -6,7 +7,7 @@ public class Biblioteca {
 
     private ArrayList<Libro> libros;
     private ArrayList<Genero> generos;
-    private TreeWithNode genres;
+    private TreeMap<String, ArrayList<Genero>> indice = new TreeMap<>();
 
     public Biblioteca() {
         this.libros = new ArrayList<>();
@@ -115,42 +116,5 @@ public class Biblioteca {
     }
 
     // ************************************* */
-
-	// metodo publico.
-	// Si el arbol no tiene root, la creo y le asigno valor.
-	// si ya hay raiz,
-	// else ---> recursion
-	public void addGenre(Genero genero) {
-		if (this.root == null) {
-			this.root = new TreeNode(value);
-		} else {
-			this.add(this.root, value);
-		}
-
-	}
-
-	// metodo PRIVADO
-	private void add(TreeNode actual, int value) {
-		if (actual.getInfo() > value) {
-			if (actual.getLeft() == null) {
-				TreeNode tmp = new TreeNode(value);
-				actual.setLeft(tmp);
-			} else {
-				this.add(actual.getLeft(), value);
-			}
-		} else {
-			if (actual.getRight() == null) {
-				TreeNode tmp = new TreeNode(value);
-				actual.setRight(tmp);
-			} else {
-				this.add(actual.getRight(), value);
-			}
-		}
-	}
-
-    public ArrayList<Libro> buscarLibrosPorGenero(String genero) {
-
-        return null;
-    }
 
 }
