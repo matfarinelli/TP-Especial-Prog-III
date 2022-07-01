@@ -4,7 +4,7 @@ public class Libro {
 
     private String titulo;
     private String autor;
-    private String cantidadPaginas; // ver. El split divide strings
+    private String cantidadPaginas;
     private ArrayList<String> generos;
 
     public Libro(String titulo) {

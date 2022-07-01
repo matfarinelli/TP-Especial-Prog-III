@@ -51,7 +51,7 @@ public class Main {
 
         // System.out.println(b1.getGeneros());
 
-        CSVWritter csvW = new CSVWritter(b1.getLibroPorGenero("viajes"));
+        CSVWritter csvW = new CSVWritter(b1.getLibrosPorGenero("viajes"));
 
         csvW.generarArchivoCSV();
 
